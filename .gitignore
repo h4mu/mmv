@@ -14,3 +14,15 @@
 *.la
 *.a
 *.lib
+
+# Windows
+bin/
+obj/
+ipch/
+debug/
+release/
+*.suo
+*.user
+*.ncb
+*.sbr
+*.log
