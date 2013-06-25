@@ -1,1 +1,4 @@
+MinGW:
 i686-pc-mingw32-g++.exe -static-libgcc -static-libstdc++ -mwindows mmv.cpp -o mmv
+Visual C++:
+cl.exe user32.lib mmv.cpp
