@@ -40,6 +40,7 @@ int WinMain(HINSTANCE hInst,HINSTANCE,LPSTR,int nCmdShow)
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
+	return (int) msg.wParam;
 }
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
@@ -85,4 +86,3 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	}
 	return 0;
 }
-
