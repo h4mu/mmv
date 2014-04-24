@@ -8,7 +8,7 @@ int WinMain(HINSTANCE hInst,HINSTANCE,LPSTR,int nCmdShow)
 	WNDCLASS wc;
 	HWND hwnd;
 	MSG msg;
-	char AppTitle[] = "MMV";
+	char appTitle[] = "MMV";
 
 	wc.style = CS_HREDRAW | CS_VREDRAW;
 	wc.lpfnWndProc = WindowProc;
@@ -19,12 +19,12 @@ int WinMain(HINSTANCE hInst,HINSTANCE,LPSTR,int nCmdShow)
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)COLOR_WINDOWFRAME;
 	wc.lpszMenuName = NULL;
-	wc.lpszClassName = AppTitle;
+	wc.lpszClassName = appTitle;
 
 	if (!RegisterClass(&wc))
 		return 0;
 
-	hwnd = CreateWindow(AppTitle, AppTitle,
+	hwnd = CreateWindow(appTitle, appTitle,
 		WS_OVERLAPPEDWINDOW | WS_MAXIMIZE,
 		CW_USEDEFAULT, CW_USEDEFAULT, 100, 100,
 		NULL, NULL, hInst, NULL);
