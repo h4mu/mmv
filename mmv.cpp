@@ -1,7 +1,6 @@
 #include <windows.h>
 
-const UINT IDT_TIMER = 1;
-char AppTitle[] = "MMV";
+static const UINT IDT_TIMER = 1;
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 
 int WinMain(HINSTANCE hInst,HINSTANCE,LPSTR,int nCmdShow)
@@ -9,6 +8,7 @@ int WinMain(HINSTANCE hInst,HINSTANCE,LPSTR,int nCmdShow)
 	WNDCLASS wc;
 	HWND hwnd;
 	MSG msg;
+	char AppTitle[] = "MMV";
 
 	wc.style = CS_HREDRAW | CS_VREDRAW;
 	wc.lpfnWndProc = WindowProc;
@@ -48,7 +48,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	switch (msg)
 	{
 		case WM_PAINT:
-		{
 			PAINTSTRUCT ps;
 			HDC dc;
 			RECT r;
@@ -57,7 +56,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			DrawText(dc, "Mouse Mover", -1, &r, DT_SINGLELINE | DT_CENTER | DT_VCENTER);
 			EndPaint(hwnd, &ps);
 			break;
-		}
 
 		case WM_CREATE:
 			ShowWindow(hwnd, SW_MAXIMIZE);
@@ -65,7 +63,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			break;
 
 		case WM_TIMER:
-		{
 			POINT pt;
 			RECT rc;
 			GetClientRect(hwnd, &rc);
@@ -74,7 +71,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			ClientToScreen(hwnd, &pt);
 			SetCursorPos(pt.x, pt.y);
 			break;
-		}
 
 		case WM_DESTROY:
 			KillTimer(hwnd, IDT_TIMER);
