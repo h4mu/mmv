@@ -34,6 +34,7 @@ int WinMain(HINSTANCE hInst,HINSTANCE,LPSTR,int nCmdShow)
 
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
+	SetThreadExecutionState(ES_CONTINUOUS | ES_DISPLAY_REQUIRED);
 
 	while (GetMessage(&msg, NULL, 0, 0) > 0)
 	{
